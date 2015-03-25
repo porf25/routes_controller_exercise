@@ -1,4 +1,27 @@
+
+<% product = Product.where(:name => 'Rails Book').first %>
+<% cheap_product = Product.where('price > 5').first %>
+
+
 <h2> Hello World from the Products Page </h2>
+<% first_product = Product.first %>
 <p>
-  Find me in <%= Rails.root.join("app", "views", "products", __FILE__ ) %>
+  The first product costs: $<%= first_product.price %> and goes by the name of
+  <%= first_product.name %>.
+</p>
+
+<p>
+	The seller of this product is <%= first_product.user.name %>.
+</p>
+<p>
+	The next product, just product is named: <%= product.name %> and costs: <%= product.price %>
+	and the seller of the product is <%= product.user.name %>
+</p>
+<p>
+	The cheap product, just cheap_product is named: <%= cheap_product.name %> and costs: 
+	<%= cheap_product.price %>
+	and the seller of the product is <%= cheap_product.user.name %>
+</p>
+<p>
+	There is a total of <%= Product.count %> products in the database.
 </p>
